@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { ApartmentService } from "./services/apartment.service";
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,13 +17,18 @@ import {ApartmentListComponent } from './apartment-list/apartment-list.component
 import {MatCardModule} from "@angular/material/card";
 import {FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from "@angular/common/http";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RoomDetailsComponent } from './room-details/room-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ApartmentListComponent,
-    FooterComponent
+    FooterComponent,
+    routingComponents,
+    PageNotFoundComponent,
+    RoomDetailsComponent,
   ],
   imports: [
     BrowserModule,

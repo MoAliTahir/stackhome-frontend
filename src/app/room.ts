@@ -1,4 +1,4 @@
-export interface Apartment {
+export interface Room {
   id: number;
   owner: {
     id: number,
@@ -20,16 +20,11 @@ export interface Apartment {
   district: string;
   equipped: boolean;
   available: boolean;
-  bedrooms: number;
-  living_room: number;
-  bathroom : number;
   price: number;
+  beds: number;
   description: string;
   created: Date;
   img1: string;
   img2: string;
   img3: string;
-  img4: string;
-  img5: string;
-  img6: string;
 }
