@@ -1,5 +1,5 @@
-<div class="container">
-  <h1 class="text-center text-info">Apartments List</h1>
+<div class="container apartment-list">
+  <h1 class="text-center text-info">Apartments List</h1><br><br>
   <div class="row">
     <div class="col-md-4" *ngFor="let apartment of apartments">
       <mat-card class="example-card">
@@ -39,11 +39,21 @@
   </div>
 </div>
 <div class="container-fluid rent-sell">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="rent-sell-box">
+        <h3 class="text-white rent-sell-box-text">Need to rent or sell<br> your place?   <button mat-raised-button color="primary">Register here</button></h3>
 
+      </div>
+    </div>
+    <div class="col-md-6">
+      <img src="../../assets/images/img_67237.png" class="rent-sell-img">
+    </div>
+  </div>
 </div>
 
 <div class="container rooms">
-  <h1 class="text-center text-info">Rooms List</h1>
+  <h1 class="text-center text-info">Rooms List</h1><br><br>
   <div class="row">
     <div class="col-md-4" *ngFor="let room of rooms">
       <mat-card class="example-card">
