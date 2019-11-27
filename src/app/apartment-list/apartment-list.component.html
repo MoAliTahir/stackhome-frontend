@@ -1,43 +1,54 @@
-<div class="container apartment-list">
+<div class="container-fluid apartment-list">
   <h1 class="text-center text-info">Apartments List</h1><br><br>
   <div class="row">
-    <div class="col-md-4" *ngFor="let apartment of apartments">
-      <mat-card class="example-card">
+    <div class="col-sm-12">
+      <mdb-carousel [animation]="'slide'" [isControls]="true" class="carousel-multi-item multi-animation">
+        <div class="container d-block w-100">
+          <mdb-carousel-item *ngFor="let apartments of slides; let i = index">
+            <div class="col-md-4" style="margin: 0px" *ngFor="let apartment of apartments; let cardIndex = index">
+              <a (click)="onSelect(apartment)">
+                <mat-card class="example-card">
+                  <img mat-card-image src="{{apartment.img1}}" alt="Photo of a Shiba Inu" class="card-img">
+                  <mat-card-content>
+                    <h6>{{apartment.address}}</h6>
+                    <div class="row">
+                      <div class="col-sm-6 text-info"><h5>{{apartment.price}}</h5></div>
+                      <div class="col-sm-6">
+                        <table style="margin-left: 30px">
+                          <tr>
+                            <td style="vertical-align: top">
+                              {{apartment.bedrooms}}
+                            </td>
+                            <td style="padding-right: 10px">
+                              <mdb-icon fas icon="bed"></mdb-icon>
+                            </td>
+                            <td style="vertical-align: top">
+                              {{apartment.bathroom}}
+                            </td>
+                            <td>
+                              <mdb-icon fas icon="bath"></mdb-icon>
+                            </td>
+                          </tr>
+                        </table>
 
-        <img mat-card-image src="{{apartment.img1}}" alt="Photo of a Shiba Inu" class="card-img">
-        <mat-card-content>
-          <h6>{{apartment.address}}</h6>
-          <div class="row">
-            <div class="col-sm-6 text-info"><h5>{{apartment.price}}</h5></div>
-            <div class="col-sm-6">
-              <table style="margin-left: 30px">
-                <tr>
-                  <td style="vertical-align: top">
-                    {{apartment.bedrooms}}
-                  </td>
-                  <td>
-                    <i class="material-icons">single_bed</i>
-                  </td>
-                  <td style="vertical-align: top">
-                    {{apartment.bathroom}}
-                  </td>
-                  <td>
-                    <i class="material-icons">bathtub</i>
-                  </td>
-                </tr>
-              </table>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </a>
 
             </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button (click)="onSelect(apartment)">DETAILS</button>
-        </mat-card-actions>
-      </mat-card>
+          </mdb-carousel-item>
+        </div>
+
+
+      </mdb-carousel>
     </div>
   </div>
 </div>
+
+
+<!-- Need to rent or sell your place?  -->
 <div class="container-fluid rent-sell">
   <div class="row">
     <div class="col-md-6">
@@ -51,39 +62,50 @@
     </div>
   </div>
 </div>
-
-<div class="container rooms">
+<!-- list of rooms -->
+<div class="container-fluid rooms">
   <h1 class="text-center text-info">Rooms List</h1><br><br>
   <div class="row">
-    <div class="col-md-4" *ngFor="let room of rooms">
-      <mat-card class="example-card">
+    <div class="col-sm-12">
+      <mdb-carousel [animation]="'slide'" [isControls]="true" class="carousel-multi-item multi-animation">
+        <div class="container d-block w-100">
+          <mdb-carousel-item *ngFor="let rooms of roomSlides; let i = index">
+            <div class="col-md-4" style="margin: 0px" *ngFor="let room of rooms; let cardIndex = index">
+              <a (click)="onSelectRoom(room)">
+                <mat-card class="example-card">
+                  <img mat-card-image src="{{room.img1}}" alt="Photo of a Shiba Inu" class="card-img">
+                  <mat-card-content>
+                    <h6>{{room.address}}</h6>
+                    <div class="row">
+                      <div class="col-sm-6 text-info"><h5>{{room.price}}</h5></div>
+                      <div class="col-sm-6">
+                        <table style="margin-left: 30px">
+                          <tr>
+                            <td style="vertical-align: top">
+                              {{room.beds}}
+                            </td>
+                            <td style="padding-right: 10px">
+                              <mdb-icon fas icon="bed"></mdb-icon>
+                            </td>
+                          </tr>
+                        </table>
 
-        <img mat-card-image src="{{room.img1}}" alt="Photo of a Shiba Inu" class="card-img">
-        <mat-card-content>
-          <h6>{{room.address}}</h6>
-          <div class="row">
-            <div class="col-sm-6 text-info"><h5>{{room.price}}</h5></div>
-            <div class="col-sm-6">
-              <table style="margin-left: 30px">
-                <tr>
-                  <td style="vertical-align: top">
-                    {{room.beds}}
-                  </td>
-                  <td>
-                    <i class="material-icons">single_bed</i>
-                  </td>
-                </tr>
-              </table>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </a>
 
             </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button (click)="onSelectRoom(room)">DETAILS</button>
-        </mat-card-actions>
-      </mat-card>
+          </mdb-carousel-item>
+        </div>
+
+
+      </mdb-carousel>
     </div>
   </div>
 </div>
+
+
+
 

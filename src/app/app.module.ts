@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { NgModule } from '@angular/core';
+import { AgmCoreModule } from "@agm/core";
 import { FormsModule } from "@angular/forms";
 import { ApartmentService } from "./services/apartment.service";
 
@@ -20,6 +22,9 @@ import {HttpClientModule} from "@angular/common/http";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +37,7 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
   ],
   imports: [
     BrowserModule,
+    MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -42,6 +48,9 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
     MatToolbarModule,
     MatCardModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAEiD42g_k4CJNZ7wh8ALVZUDbDs5VM5J0'
+    })
   ],
   providers: [ApartmentService],
   bootstrap: [AppComponent]

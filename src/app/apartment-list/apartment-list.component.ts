@@ -11,14 +11,25 @@ import {RoomService} from "../services/room.service";
 export class ApartmentListComponent implements OnInit {
   public apartments = [];
   public rooms = [];
+  slides: any = [[]];
+  roomSlides : any =[[]];
+  chunk(arr, chunkSize) {
+    let R = [];
+    for (let i = 0, len = arr.length; i < len; i += chunkSize) {
+      R.push(arr.slice(i, i + chunkSize));
+    }
+    return R;
+  }
 
   constructor(private _apartments: ApartmentService, private _roomService: RoomService, private _router: Router) { }
 
   ngOnInit() {
+
     this._apartments.getApartments();
     this._apartments.eventEmitter.subscribe(
       (data) => {
         this.apartments=data;
+        this.slides = this.chunk(data, 3);
         console.log(data);
       },
       (error) => {
@@ -30,6 +41,7 @@ export class ApartmentListComponent implements OnInit {
       .subscribe(
         (data) =>{
           this.rooms = data;
+          this.roomSlides = this.chunk(data, 3);
         },
         error => {
           console.log("No data found");
@@ -44,4 +56,5 @@ export class ApartmentListComponent implements OnInit {
   onSelectRoom(room) {
     this._router.navigate(['/rooms/detail', room.id])
   }
+
 }
