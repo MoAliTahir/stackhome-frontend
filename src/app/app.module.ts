@@ -49,7 +49,7 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
     MatCardModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAEiD42g_k4CJNZ7wh8ALVZUDbDs5VM5J0'
+      apiKey: ''
     })
   ],
   providers: [ApartmentService],

@@ -9,9 +9,9 @@ import {RoomService} from "../services/room.service";
   styleUrls: ['./apartment-list.component.css']
 })
 export class ApartmentListComponent implements OnInit {
-  public apartments = [];
-  public rooms = [];
   slides: any = [[]];
+  roomSlides : any =[[]];
+
   chunk(arr, chunkSize) {
     let R = [];
     for (let i = 0, len = arr.length; i < len; i += chunkSize) {
@@ -27,7 +27,6 @@ export class ApartmentListComponent implements OnInit {
     this._apartments.getApartments();
     this._apartments.eventEmitter.subscribe(
       (data) => {
-        this.apartments=data;
         this.slides = this.chunk(data, 3);
         console.log(data);
       },
@@ -35,14 +34,10 @@ export class ApartmentListComponent implements OnInit {
         console.log("No data found");
       }
       );
-    this.slides = this.chunk(this.apartments, 3);
     this._roomService.getRooms()
       .subscribe(
         (data) =>{
-          this.rooms = data;
-          Object.keys(this.rooms).forEach(a=>{
-            console.log(a);
-          })
+          this.roomSlides = this.chunk(data, 3);
         },
         error => {
           console.log("No data found");

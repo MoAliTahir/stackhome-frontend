@@ -63,40 +63,9 @@
   </div>
 </div>
 <!-- list of rooms -->
-<div class="container rooms">
+<div class="container-fluid rooms">
   <h1 class="text-center text-info">Rooms List</h1><br><br>
-  <div class="row">
-    <div class="col-md-4" *ngFor="let room of rooms">
-      <mat-card class="example-card">
 
-        <img mat-card-image src="{{room.img1}}" alt="Photo of a Shiba Inu" class="card-img">
-        <mat-card-content>
-          <h6>{{room.address}}</h6>
-          <div class="row">
-            <div class="col-sm-6 text-info"><h5>{{room.price}}</h5></div>
-            <div class="col-sm-6">
-              <table style="margin-left: 30px">
-                <tr>
-                  <td>
-                    {{room.beds }}
-                  </td>
-
-                  <td>
-                    <mdb-icon fas icon="bed"></mdb-icon>
-                  </td>
-                </tr>
-              </table>
-
-            </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button (click)="onSelectRoom(room)">DETAILS</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
 </div>
 
 

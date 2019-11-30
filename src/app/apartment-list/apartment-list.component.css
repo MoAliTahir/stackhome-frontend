@@ -6,11 +6,6 @@
   width: 350px;
 }
 
-.example-header-image {
-  background-image: url('http://localhost:8000/media/profile_pics/28.jpg');
-  background-size: cover;
-
-}
 .card-img{
   height: 300px;
   width: 350px;
