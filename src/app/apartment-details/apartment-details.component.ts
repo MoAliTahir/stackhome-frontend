@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ApartmentService} from "../services/apartment.service";
 
 @Component({
@@ -10,9 +10,10 @@ import {ApartmentService} from "../services/apartment.service";
 export class ApartmentDetailsComponent implements OnInit {
 
   public apartmentId;
-  public apartments;
   public apartment;
-  constructor(private route: ActivatedRoute, private _apartments: ApartmentService) { }
+  public images = [];
+  public map: any = { lat: 51.678418, lng: 7.809007 };
+  constructor(private route: ActivatedRoute, private _apartments: ApartmentService, private router: Router) { }
 
   ngOnInit() {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
@@ -21,15 +22,33 @@ export class ApartmentDetailsComponent implements OnInit {
      this._apartments.getApartmentByIdFromServer(this.apartmentId)
        .subscribe(
          (data) => {
+           if (! data)
+           {
+             console.log("Data est null");
+             this.router.navigate(["/error"]);
+           }
            this.apartment = data;
-           console.log("----------> ",this.apartment);
+
+           this.images = [
+             data.img1,
+             data.img2,
+             data.img3,
+             data.img4,
+             data.img5,
+             data.img6,
+           ];
+           this.images = this.images.filter(
+             (image) =>{
+               return image !== null;
+             }
+           );
          },
          (error) => {
            console.log("From getApartmentById : No deta found");
+           console.log(error);
          }
        )
      ;
-    console.log("From apartmnt-details : ", this.apartment);
     /*this._apartments.eventEmitter.subscribe(
       (data) => {
         this.apartments=data;

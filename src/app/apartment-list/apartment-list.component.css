@@ -1,8 +1,9 @@
 .apartment-list{
   margin-top: 50px;
+  min-height: 600px;
 }
 .example-card {
-  max-width: 350px;
+  width: 350px;
 }
 
 .example-header-image {
@@ -17,7 +18,7 @@
 .rent-sell{
   margin-top: 100px;
   height: 350px;
-  background-color: cadetblue;
+  background-color: dimgrey;
 }
 .rooms{
   margin-top: 50px;
