@@ -8,7 +8,7 @@ import {ApartmentService} from "../services/apartment.service";
   styleUrls: ['./apartment-details.component.css']
 })
 export class ApartmentDetailsComponent implements OnInit {
-
+  public nbImages;
   public apartmentId;
   public apartment;
   public images = [];
@@ -49,6 +49,7 @@ export class ApartmentDetailsComponent implements OnInit {
          }
        )
      ;
+     this.nbImages = this.images.length >= 5;
     /*this._apartments.eventEmitter.subscribe(
       (data) => {
         this.apartments=data;

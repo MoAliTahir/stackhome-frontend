@@ -65,7 +65,46 @@
 <!-- list of rooms -->
 <div class="container-fluid rooms">
   <h1 class="text-center text-info">Rooms List</h1><br><br>
+  <div class="row">
+    <div class="col-sm-12">
+      <mdb-carousel [animation]="'slide'" [isControls]="true" class="carousel-multi-item multi-animation">
+        <div class="container d-block w-100">
+          <mdb-carousel-item *ngFor="let rooms of roomSlides; let i = index">
+            <div class="col-md-4" style="margin: 0px" *ngFor="let room of rooms; let cardIndex = index">
+              <a (click)="onSelectRoom(room)">
+                <mat-card class="example-card">
+                  <img mat-card-image src="{{room.img1}}" alt="Photo of a Shiba Inu" class="card-img">
+                  <mat-card-content>
+                    <h6>{{room.address}}</h6>
+                    <div class="row">
+                      <div class="col-sm-6 text-info"><h5>{{room.price}}</h5></div>
+                      <div class="col-sm-6">
+                        <table style="margin-left: 30px">
+                          <tr>
+                            <td style="vertical-align: top">
+                              {{room.beds}}
+                            </td>
+                            <td style="padding-right: 10px">
+                              <mdb-icon fas icon="bed"></mdb-icon>
+                            </td>
 
+                          </tr>
+                        </table>
+
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </a>
+
+            </div>
+          </mdb-carousel-item>
+        </div>
+
+
+      </mdb-carousel>
+    </div>
+  </div>
 </div>
 
 
