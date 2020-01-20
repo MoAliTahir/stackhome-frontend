@@ -9,8 +9,8 @@
         </mdb-carousel>
       </div>
     </div>
-    <div class="col-md-2" style="background-color: dimgrey;">
-      <div class="container" style=" max-height: 500px; overflow-y: scroll" >
+    <div class="col-md-2">
+      <div class="container">
         <div class="row">
           <div class="col-sm-12" *ngFor="let img of images" >
             <img src="{{ img }}" style="max-height: 100%; max-width: 100%; opacity: 0.6; margin-top: 20px">
@@ -22,6 +22,7 @@
 
 <div class="container room-details">
   <h2 class="text-info">Room Details</h2>
+  <hr><br>
   <div class="container">
     <div class="row">
       <div class="col-md-6" style="height: 200px">
@@ -40,7 +41,7 @@
 
           </div>
           <div class="col-md-12">
-            <p><b class="h4">Price : </b> <span style="font-size: 25px;" class="text-success h4 font-weight-bolder"> {{room.price}} MAD/Month</span></p>
+            <p><b class="h4">Price : </b> <span style="font-size: 25px;" class="text-success h5 font-weight-bolder"> {{room.price}} MAD/Month</span></p>
           </div>
 
         </div>
@@ -50,17 +51,6 @@
         <h5>Description</h5>
         <p class="h6">{{room.description}}</p>
       </div>
-      <div class="col-md-6" style="margin-top: -30px">
-        <b class="h4">Owner : </b>
-        <div class="text-info h5">
-          <img src="{{room.owner.image}}" class="rounded-circle" style="height: 50px; width: 50px">
-          {{room.owner.full_name}}
-        </div>
-      </div>
-      <div class="col-md-6">
-        <p class="h3">Interested in this room?<button mdbBtn type="button" color="primary" rounded="true" mdbWavesEffect>Send A Request</button></p>
-
-      </div>
     </div>
 
   </div>
@@ -69,7 +59,7 @@
 
 <div class="container room-features">
   <h2 class="text-info">Room Features</h2>
-  <br>
+  <hr><br>
   <div class="container">
     <div class="row">
       <div class="col-md-3" *ngFor="let feature of room.features" style="margin-top: 50px; height: 20px;">
@@ -86,6 +76,7 @@
 
 <div class="container room-map">
   <h2 class="text-info">Room Location</h2>
+  <hr>
   <div class="container" style="padding-top: 50px">
     <agm-map [latitude]="map.lat" [longitude]="map.lng" style="height: 500px">
       <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker>

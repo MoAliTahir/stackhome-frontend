@@ -5,13 +5,11 @@
 
 .room-details{
   height: 300px;
-  background-color: dimgrey;
   margin-top: 50px
 }
 
 .room-features{
   max-height: 300px;
-  background-color: dimgrey;
   margin-top: 50px;
   padding-bottom: 100px;
 }
@@ -19,6 +17,5 @@
 .room-map{
   max-height: 650px;
   padding-bottom: 50px;
-  background-color: dimgrey;
   margin-top: 50px
 }

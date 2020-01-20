@@ -5,13 +5,12 @@
 
 .apartment-details{
   height: 300px;
-  background-color: dimgrey;
-  margin-top: 50px
+  margin-top: 50px;
+
 }
 
 .apartment-features{
   max-height: 300px;
-  background-color: dimgrey;
   margin-top: 50px;
   padding-bottom: 100px;
 }
@@ -19,6 +18,5 @@
 .apartment-map{
   max-height: 650px;
   padding-bottom: 50px;
-  background-color: dimgrey;
   margin-top: 50px
 }
