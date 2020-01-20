@@ -21,6 +21,9 @@ import {FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from "@angular/common/http";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
+import { UserComponent } from './user/user.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
 
 
 
@@ -34,6 +37,9 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
     routingComponents,
     PageNotFoundComponent,
     RoomDetailsComponent,
+    UserComponent,
+    SignInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
