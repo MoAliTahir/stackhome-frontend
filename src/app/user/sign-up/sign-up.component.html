@@ -1,44 +1,51 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <div class="row">
-  <form class="col s12" #signupForm="ngForm">
+  <form class="col s12" #signUpForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
-      <div class="input-field col s6">
-        <input id="first_name" type="text" class="validate">
-        <label for="first_name">First Name</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="last_name" type="text" class="validate">
-        <label for="last_name">Last Name</label>
+      <div class="input-field col s12">
+        <input [(ngModel)]="full_name" name="full_name" id="full_name" type="text" class="validate" required>
+        <label for="full_name">Full Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">email</i>
-        <input id="email" type="email" class="validate">
+        <input [(ngModel)]="email" name="email" id="email" type="email" class="validate" required>
         <label for="email">Email</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">phone</i>
-        <input id="icon_telephone" type="tel" class="validate">
-        <label for="icon_telephone">Telephone</label>
+        <input [(ngModel)]="phone_number" name="phone_number" id="phone_number" type="tel" class="validate" required>
+        <label for="phone_number">Telephone</label>
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">credit_card</i>
-        <input id="cardId" placeholder="L002326D" type="tel" class="validate">
+        <input [(ngModel)]="id_card" name="id_card" id="cardId" placeholder="L002326D" type="text" class="validate" required>
         <label for="cardId">Card ID</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">vpn_key</i>
-        <input id="password" type="password" class="validate">
+        <input [(ngModel)]="password" name="password" id="password" type="password" class="validate" required>
         <label for="password">Password</label>
       </div>
     </div>
     <div class="row">
-        <button [disabled]="!signupForm.valid" class=" input-field btn-large btn-submit col s12 waves-effect waves-light grey darken-2" type="submit" name="action">Register</button>
+      <div class="file-field input-field col s12">
+        <div class="btn">
+          <span>File</span>
+          <input type="file" [(ngModel)]="image" name="image">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Upload your profile picture">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <button [disabled]="!signUpForm.valid" class=" input-field btn-large btn-submit col s12 waves-effect waves-light grey darken-2" type="submit" name="action">Register</button>
     </div>
   </form>
 

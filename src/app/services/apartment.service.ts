@@ -1,6 +1,6 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Apartment} from "../apartment";
+import {Apartment} from "../models/apartment";
 import {Observable, of} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
 import {environment} from "../../environments/environment";
