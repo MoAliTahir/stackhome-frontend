@@ -4,25 +4,20 @@
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <button mat-button routerLink="/login">Login</button>
+  <button *ngIf="!isConnected" mat-button routerLink="/login">Login</button>
 
-  <button mat-button [matMenuTriggerFor]="belowMenu">Below</button>
-  <mat-menu #belowMenu="matMenu" yPosition="below">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
 
-  <button mat-button [matMenuTriggerFor]="beforeMenu">Before</button>
+  <button *ngIf="isStaff" mat-button [matMenuTriggerFor]="beforeMenu">Staff Members</button>
   <mat-menu #beforeMenu="matMenu" xPosition="before">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
+    <button mat-menu-item>My Apartments</button>
+    <button mat-menu-item>My Rooms</button>
+    <button mat-menu-item>Requests</button>
   </mat-menu>
 
 
-  <button mat-button [matMenuTriggerFor]="afterMenu">After</button>
+  <button *ngIf="isConnected" mat-button [matMenuTriggerFor]="afterMenu">{{ authUser.full_name }}</button>
   <mat-menu #afterMenu="matMenu" xPosition="after">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
+    <button (click)="logout()" mat-menu-item>Logout</button>
   </mat-menu>
 
 </mat-toolbar>

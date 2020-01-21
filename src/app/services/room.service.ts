@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {Room} from "../models/room";
 import {catchError, tap} from "rxjs/operators";
@@ -36,5 +36,16 @@ export class RoomService {
         }
       )
     )
+  }
+
+  newBooking(id: number, start_date: Date, end_date: Date) {
+    let data = {
+      "apartment": null,
+      "room": id,
+      "start_date": start_date,
+      "end_date": end_date,
+    };
+    let reqHeader = new HttpHeaders({'Authorization': 'Token '+localStorage.getItem('userToken')});
+    return this.http.post(environment.url + "/house/"+id+"/rent/", data, { headers: reqHeader} );
   }
 }

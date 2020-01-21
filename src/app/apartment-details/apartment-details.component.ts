@@ -70,4 +70,15 @@ export class ApartmentDetailsComponent implements OnInit {
 
   }
 
+  onSubmit(id: number, start_date: Date, end_date: Date) {
+    this._apartments.newBooking(id, start_date, end_date).subscribe(
+      (data)=>{
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+  }
 }

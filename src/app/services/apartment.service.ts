@@ -1,5 +1,5 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Apartment} from "../models/apartment";
 import {Observable, of} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
@@ -76,5 +76,15 @@ export class ApartmentService {
       //return apartment;
     }
 
+  }
+
+  newBooking(id: number, start_date: Date, end_date: Date) {
+    let data = {
+      "apartment": id,
+      "start_date": start_date,
+      "end_date": end_date,
+    };
+    let reqHeader = new HttpHeaders({'Authorization': 'Token '+localStorage.getItem('userToken')});
+    return this.http.post(environment.url + "/house/"+id+"/rent/", data, { headers: reqHeader} );
   }
 }

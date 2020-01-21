@@ -83,6 +83,49 @@
   </div>
 </div>
 
+<!-- Button trigger modal -->
+
 <div class="container text-center" style="padding-top: 100px">
-  <button type="button" mdbBtn color="primary" mdbWavesEffect>BOOK NOW</button>
+  <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModal">
+    BOOK NOW
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Booking New Apartment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form ngForm (ngSubmit)="onSubmit(apartment.id, start_date.value, end_date.value)">
+          <div class="row container">
+            <h6>Select your preferences</h6>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="start_date">Start Date</span>
+              </div>
+              <input type="date" ngModel #start_date name="start_date" class="form-control" aria-label="start_date" aria-describedby="start_date">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="end_date">End Date</span>
+              </div>
+              <input type="date" ngModel #end_date name="end_date" class="form-control" aria-label="end_date" aria-describedby="end_date">
+            </div>
+            <div style="padding-left: 65%">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary ml-2">Submit</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
 </div>

@@ -8,5 +8,5 @@ export interface User {
   staff : boolean;
   admin : boolean;
   created_at : Date;
-  image : File;
+  image : string;
 }

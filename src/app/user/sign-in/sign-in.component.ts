@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-in',
@@ -8,8 +9,8 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-
-  constructor(private userService: UserService) { }
+  isLoginError : boolean = false;
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -18,12 +19,11 @@ export class SignInComponent implements OnInit {
     console.log("Email: "+email+" Password: "+password);
     this.userService.login(email, password).subscribe(
       (data: any) =>{
-        console.log("++Success");
-          console.log(data);
+          localStorage.setItem("userToken", data.token);
+          this.router.navigate(['/']);
       },
       (err : HttpErrorResponse) =>{
-        console.log("--Errorrrrr");
-        console.log(err);
+        this.isLoginError = true;
       }
     );
   }

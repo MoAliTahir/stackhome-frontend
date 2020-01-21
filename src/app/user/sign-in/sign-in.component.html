@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<div *ngIf="isLoginError" class="red-text center error-message">
+  <i class="material-icons prefix">error</i>Invalid Email or Password
+</div>
 <form #loginForm="ngForm" class="col s12" (ngSubmit)="onSubmit(email.value, password.value)">
   <div class="row">
     <div class="input-field col s12">
