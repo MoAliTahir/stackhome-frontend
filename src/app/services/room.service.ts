@@ -4,6 +4,8 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {Room} from "../models/room";
 import {catchError, tap} from "rxjs/operators";
+import {Apartment} from "../models/apartment";
+import {Rent} from "../models/rent";
 
 @Injectable({
   providedIn: 'root'
@@ -48,4 +50,10 @@ export class RoomService {
     let reqHeader = new HttpHeaders({'Authorization': 'Token '+localStorage.getItem('userToken')});
     return this.http.post(environment.url + "/house/"+id+"/rent/", data, { headers: reqHeader} );
   }
+
+  getRoomsByOwner(): Observable<Room[]> {
+    let reqHeader = new HttpHeaders({'Authorization': 'Token '+localStorage.getItem('userToken')});
+    return this.http.get<Room[]>(environment.url + "/rooms/me", { headers: reqHeader } );
+  }
+
 }

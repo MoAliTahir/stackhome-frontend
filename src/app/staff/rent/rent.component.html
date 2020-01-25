@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-10 offset-1">
+    <div class="grey lighten-2">
+      <div class="card-tabs">
+        <ul class="tabs tabs-fixed-width tabs-transparent">
+          <li class="tab">
+            <a routerLink="/staff/rents/apartments" routerLinkActive="active" (click)="apartsOrRooms=true">Apartment's Requests</a>
+          </li>
+          <li class="tab">
+            <a routerLink="/staff/rents/rooms" routerLinkActive="active" (click)="apartsOrRooms=false">Room's Requests</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-content grey lighten-4">
+        <div *ngIf="apartsOrRooms; then apartBlock; else roomBlock"></div>
+        <ng-template #apartBlock>
+          <app-apart-request [apartmentReqs]="apartmentRents"></app-apart-request>
+        </ng-template>
+
+        <ng-template #roomBlock>
+          <app-room-request [roomReqs]="roomRents"></app-room-request>
+        </ng-template>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

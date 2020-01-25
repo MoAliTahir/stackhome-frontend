@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col s12 m7">
+    <div class="card">
+      <div class="card-image">
+        <img src="{{images[0]}}">
+        <span class="card-title">{{apartment.address}}</span>
+      </div>
+      <div class="card-content">
+        <div class="row">
+          <div class="col s2">
+            <table>
+              <tr>
+                <td>
+                  {{apartment.bedrooms}} <mdb-icon fas icon="bed"></mdb-icon>
+                </td>
+                <td>
+                  {{apartment.bathroom}} <mdb-icon fas icon="bath"></mdb-icon>
+                </td>
+                <td>
+                  {{images.length}} <mdb-icon fas icon="images"></mdb-icon>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="col s10">
+
+          </div>
+        </div>
+        <h5>Features</h5>
+        <div class="row">
+          <p class="col-4" *ngFor="let f of apartment.features">
+           {{ f }}
+          </p>
+        </div>
+      </div>
+      <div class="card-action">
+        <a href="#">This is a link</a>
+      </div>
+    </div>
+  </div>
+</div>

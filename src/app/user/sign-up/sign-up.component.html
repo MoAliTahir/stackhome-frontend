@@ -8,10 +8,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s8">
         <i class="material-icons prefix">email</i>
         <input [(ngModel)]="email" name="email" id="email" type="email" class="validate" required>
         <label for="email">Email</label>
+      </div>
+      <div class="input-field col s4">
+        <label for="is_staff">
+          <input  [(ngModel)]="is_staff" name="is_staff" id="is_staff" type="checkbox" />
+          <span>Staff</span>
+        </label>
       </div>
     </div>
     <div class="row">

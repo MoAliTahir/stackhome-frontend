@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col s1 offset-s11"><a class="waves-effect waves-light btn" routerLinkActive="active" routerLink="/staff/my-apartments/new">New</a></div>
+</div>
+<div class="row">
+  <div class="col-md-7">
+    <table>
+      <thead>
+      <tr>
+        <th>Image</th>
+        <th>Address</th>
+        <th>District</th>
+        <th>Price</th>
+        <th>Available</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let apartment of myApartments">
+        <td>
+          <img class="circle" style="width: 70px; height: 70px" src="{{apartment.img1}}">
+        </td>
+        <td>{{ apartment.address }}</td>
+        <td>{{ apartment.district }}</td>
+        <td>{{ apartment.price }}</td>
+        <td>{{ apartment.available }}</td>
+
+        <td><a class="waves-effect waves-light grey darken-2 btn" href="/staff/my-apartments/view/{{ apartment.id }}">View</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-5">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

@@ -1,0 +1,41 @@
+<div class="col s12">
+  <table>
+    <thead>
+    <tr>
+      <th>User</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Status</th>
+      <th>Received At</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let rent of roomReqs">
+
+      <td><img src="{{rent.tenant.image}}" alt="" class="circle responsive-img" style="width: 60px; height: 60px">{{ rent.tenant.full_name }}</td>
+      <td>{{ rent.start_date }}</td>
+      <td>{{ rent.end_date }}</td>
+      <td>
+        <div *ngIf="rent.state===0">
+          Pending
+        </div>
+        <div *ngIf="rent.state===1">
+          Approved
+        </div>
+      </td>
+      <td>{{ rent.created_at.toString().slice(0, 16) }}</td>
+      <td>
+        <div *ngIf="rent.state===0">
+          <a class="waves-effect waves-light btn mr-2" (click)="approveRoomReq(rent.id)">Approve</a>
+          <a class="waves-effect waves-light btn red darken-1" (click)="ignoreRoomReq(rent.id)">Ignore</a>
+        </div>
+        <div *ngIf="rent.state===1">
+          <a class="waves-effect waves-light btn grey darken-1" (click)="ignoreApartReq(rent.id)">View</a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

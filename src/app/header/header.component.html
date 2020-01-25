@@ -4,16 +4,11 @@
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <button *ngIf="!isConnected" mat-button routerLink="/login">Login</button>
+  <button *ngIf="!isConnected" mat-button routerLink="/login">Sign In</button>
+  <button *ngIf="!isConnected" mat-button routerLink="/signup">Sign Up</button>
 
 
-  <button *ngIf="isStaff" mat-button [matMenuTriggerFor]="beforeMenu">Staff Members</button>
-  <mat-menu #beforeMenu="matMenu" xPosition="before">
-    <button mat-menu-item>My Apartments</button>
-    <button mat-menu-item>My Rooms</button>
-    <button mat-menu-item>Requests</button>
-  </mat-menu>
-
+  <button *ngIf="isStaff" mat-button routerLink="/staff/my-apartments">Staff Members</button>
 
   <button *ngIf="isConnected" mat-button [matMenuTriggerFor]="afterMenu">{{ authUser.full_name }}</button>
   <mat-menu #afterMenu="matMenu" xPosition="after">

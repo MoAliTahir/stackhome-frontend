@@ -4,6 +4,7 @@ import {Apartment} from "../models/apartment";
 import {Observable, of} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
 import {environment} from "../../environments/environment";
+import {Rent} from "../models/rent";
 
 @Injectable({
   providedIn: 'root'
@@ -87,4 +88,10 @@ export class ApartmentService {
     let reqHeader = new HttpHeaders({'Authorization': 'Token '+localStorage.getItem('userToken')});
     return this.http.post(environment.url + "/house/"+id+"/rent/", data, { headers: reqHeader} );
   }
+
+  getApartmentsByOwner(): Observable<Apartment[]> {
+    let reqHeader = new HttpHeaders({'Authorization': 'Token '+localStorage.getItem('userToken')});
+    return this.http.get<Apartment[]>(environment.url + "/apartments/me/", { headers: reqHeader } );
+  }
+
 }

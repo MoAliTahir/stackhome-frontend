@@ -24,7 +24,15 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
 import { UserComponent } from './user/user.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
-
+import { StaffComponent } from './staff/staff.component';
+import { ApartComponent } from './staff/apart/apart.component';
+import { RoomComponent } from './staff/room/room.component';
+import { RentComponent } from './staff/rent/rent.component';
+import { ViewApartComponent } from './staff/apart/view-apart/view-apart.component';
+import { NewApartComponent } from './staff/apart/new-apart/new-apart.component';
+import { NewRoomComponent } from './staff/room/new-room/new-room.component';
+import { ApartRequestComponent } from './staff/rent/apart-request/apart-request.component';
+import { RoomRequestComponent } from './staff/rent/room-request/room-request.component';
 
 
 
@@ -40,6 +48,15 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
     UserComponent,
     SignInComponent,
     SignUpComponent,
+    StaffComponent,
+    ApartComponent,
+    RoomComponent,
+    RentComponent,
+    ViewApartComponent,
+    NewApartComponent,
+    NewRoomComponent,
+    ApartRequestComponent,
+    RoomRequestComponent,
   ],
   imports: [
     BrowserModule,

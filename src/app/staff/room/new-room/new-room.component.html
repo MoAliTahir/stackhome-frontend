@@ -1,0 +1,108 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<div class="container-fluid">
+  <h4>Add New Room</h4>
+  <div class="row">
+    <form class="col s12 white" #newRoomForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="input-field col s6">
+          <input [(ngModel)]="address" name="address" id="address" type="text" class="validate" required>
+          <label for="address">Address</label>
+        </div>
+        <div class="input-field col s6">
+          <input [(ngModel)]="price" name="price" id="price" type="number" min="200" max="3000" class="validate" required>
+          <label for="price">Price</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s8">
+          <label for="district">District</label>
+          <select class="form-control" id="district">
+            <option disabled selected>Choose a district</option>
+            <option>M'hannech</option>
+            <option>Touta</option>
+            <option>Martil</option>
+            <option>Wilaya</option>
+            <option>Saniat Rmel</option>
+            <option>Safir</option>
+            <option>Soukna w Taamir</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="col s2">
+          <label for="bedrooms">Bedrooms Number</label>
+          <select class="form-control" id="bedrooms">
+            <option disabled selected>---</option>
+            <option>Zero</option>
+            <option>One</option>
+            <option>Two</option>
+            <option>Three</option>
+            <option>Four</option>
+          </select>
+        </div>
+        <div class="col s2">
+          <label for="living_rooms">Living Rooms Number</label>
+          <select class="form-control" id="living_rooms">
+            <option disabled selected>---</option>
+            <option>Zero</option>
+            <option>One</option>
+            <option>Two</option>
+            <option>Three</option>
+            <option>Four</option>
+          </select>
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col s2">
+          <label for="bathrooms">Bathrooms Number</label>
+          <select class="form-control" id="bathrooms">
+            <option disabled selected>---</option>
+            <option>Zero</option>
+            <option>One</option>
+            <option>Two</option>
+            <option>Three</option>
+            <option>Four</option>
+          </select>
+        </div>
+        <div class="col s4">
+          <div class="switch">
+            <label>Available</label>
+            <label>
+              False
+              <input type="checkbox">
+              <span class="lever"></span>
+              True
+            </label>
+          </div>
+        </div>
+        <div class="col s4">
+          <div class="switch">
+            <label>Equipped</label>
+            <label>
+              False
+              <input type="checkbox">
+              <span class="lever"></span>
+              True
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="file-field input-field col s12">
+          <div class="btn">
+            <span>Images</span>
+            <input type="file" [(ngModel)]="images" name="images" multiple>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload some pictures">
+          </div>
+        </div>
+      </div>
+      <div class="input-field">
+        <button [disabled]="!newRoomForm.valid" class=" input-field btn-large btn-submit col s12 waves-effect waves-light grey darken-2" type="submit" name="action">Save</button>
+      </div>
+    </form>
+
+  </div>
+</div>

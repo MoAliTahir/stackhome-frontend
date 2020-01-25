@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<div class="container-fluid">
+<!--  <h2 class="center">Manage Your Dwellings and Rental Requests</h2>-->
+<!--  <div class="section">-->
+<!--    <h5>My Apartments</h5>-->
+<!--    <hr>-->
+<!--    <app-apart></app-apart>-->
+<!--  </div>-->
+<!--  <div class="section">-->
+<!--    <h5>My Rooms</h5><hr>-->
+<!--    <app-room></app-room>-->
+<!--  </div>-->
+<!--  <div class="section">-->
+<!--    <h5>Rental Requests</h5>-->
+<!--    <hr>-->
+<!--    <app-rent></app-rent>-->
+<!--  </div>-->
+  <div class="row pt-4">
+    <nav class="nav-extended">
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent grey darken-2">
+          <li class="tab"><a routerLink="/staff/my-apartments" routerLinkActive="active">My Apartments</a></li>
+          <li class="tab"><a routerLink="/staff/my-rooms" routerLinkActive="active">My Rooms</a></li>
+          <li class="tab"><a routerLink="/staff/rents/apartments" routerLinkActive="active">Rent Requests</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="test1" class="col s12 pt-5"><router-outlet></router-outlet></div>
+  </div>
+</div>
+
+

@@ -18,6 +18,7 @@ export class SignUpComponent implements OnInit {
   image : File;
 
   userData = {};
+  is_staff: boolean = false;
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
@@ -32,7 +33,7 @@ export class SignUpComponent implements OnInit {
       "password": this.password,
       "admin": false,
       "active": true,
-      "staff": false,
+      "staff": this.is_staff,
     };
     console.log(this.userData);
     this.userService.register(this.userData).subscribe(
